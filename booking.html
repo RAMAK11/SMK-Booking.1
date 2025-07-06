@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    header {
+      background-color: #1f2937;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .account-icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .carousel {
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .content {
+      padding: 30px 40px;
+    }
+
+    .description {
+      margin-bottom: 30px;
+    }
+
+    .description h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #1f2937;
+    }
+
+    .description p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .contact {
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    .contact h3 {
+      margin-bottom: 10px;
+      color: #1f2937;
+    }
+
+    .contact p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+      background-color: #f97316;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .contact a:hover {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">SMK</div>
+    <div class="account-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Account">
+    </div>
+  </header>
+
+  <div class="carousel">
+    <img src="IMG_6990.jpeg" class="active" />
+    <img src="IMG_6954.jpeg" />
+    <img src="IMG_6989.jpeg" />
+  </div>
+
+  <div class="content">
+    <div class="description">
+      <h2>شاليه فاخر - جدة</h2>
+      <p>
+        استمتع بإقامة مريحة وفاخرة في أحد أفضل شاليهات جدة.
+        يتوفر مسبح خاص، إطلالة جميلة، وموقع قريب من جميع الخدمات.
+        مناسب للعائلات والمناسبات الخاصة.
+      </p>
+    </div>
+
+    <div class="contact">
+      <h3>للحجز والتواصل</h3>
+      <p>راسلنا عبر الواتساب أو اتصل بنا مباشرة:</p>
+      <a href="https://wa.me/966533162211" target="_blank">WhatsApp</a>
+    </div>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.carousel img');
+    let index = 0;
+
+    setInterval(() => {
+      images[index].classList.remove('active');
+      index = (index + 1) % images.length;
+      images[index].classList.add('active');
+    }, 3000);
+  </script>
+
+</body>
+</html>

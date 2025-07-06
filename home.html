@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+    }
+
+    header {
+      background-color: #1f2937;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    header nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+    }
+
+    header .account-icon img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1568605114967-8130f3a36994') no-repeat center center/cover;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      display: flex;
+      gap: 10px;
+      border-radius: 10px;
+    }
+
+    .search-bar select,
+    .search-bar button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .search-bar button {
+      background-color: #f97316;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2rem;
+    }
+
+    .properties {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0 40px 40px;
+    }
+
+    .property {
+      background-color: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      position: absolute;
+      transition: opacity 1s ease-in-out;
+      opacity: 0;
+    }
+
+    .carousel img.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .property-details {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .property-details h3 {
+      margin-bottom: 10px;
+      color: #1f2937;
+    }
+
+    .property-details p {
+      color: #6b7280;
+      margin-bottom: 15px;
+    }
+
+    .property-details a {
+      text-align: center;
+      background-color: #f97316;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .property-details a:hover {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">SMK</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Listings</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+    <div class="account-icon">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Account">
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome</h1>
+    <div class="search-bar">
+      <select>
+        <option>Saudi Arabia</option>
+      </select>
+      <button>Search</button>
+    </div>
+  </section>
+
+  <h2 class="section-title">Top Properties</h2>
+
+  <section class="properties">
+    <div class="property">
+      <div class="carousel">
+        <img src="IMG_9320.jpeg" class="active">
+        <img src="IMG_6954.jpeg">
+        <img src="IMG_6989.jpeg">
+        <img src="IMG_6990.jpeg">
+      </div>
+      <div class="property-details">
+        <h3>80.000</h3>
+        <p>شاليه مودرن, Jeddah</p>
+        <a href="booking.html">Enter</a>
+      </div>
+    </div>
+
+    <div class="property">
+      <div class="carousel">
+        <img src="cab52c2f-f127-4c80-8ca2-7845a81511be.jpeg" class="active">
+        <img src="c2ad10d6-a1be-4052-906f-05f650b9f81f.jpeg">
+        <img src="92afdbf8-1716-4032-8d73-43522795650a.jpeg">
+      </div>
+      <div class="property-details">
+        <h3>80.000</h3>
+        <p>شاليه مودرن, Jeddah</p>
+        <a href="booking.html">Enter</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const carousels = document.querySelectorAll('.carousel');
+
+    carousels.forEach(carousel => {
+      let images = carousel.querySelectorAll('img');
+      let index = 0;
+
+      setInterval(() => {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      }, 3000);
+    });
+  </script>
+
+</body>
+</html>
